@@ -12,7 +12,10 @@ const watcher = watch(
   inDir,
   { recursive: true },
   async (eventType, filename) => {
-    if (eventType === "change" || eventType === "rename") {
+    if (
+      filename?.endsWith(".opf") ||
+      (eventType === "rename" && filename?.endsWith(".epub"))
+    ) {
       console.log(`File changed: ${filename}`);
       await main();
     }
