@@ -260,4 +260,18 @@ describe("syncFiles", () => {
     const targetFiles = await getFilesInTargetDir();
     expect(targetFiles.has("unused-file.epub")).toBe(false);
   });
+
+  test("should remove empty series directories", async () => {
+    const seriesDir = `${outDir}/Empty Series`;
+    await mkdir(seriesDir, { recursive: true });
+    const emptyFilePath = `${seriesDir}/empty-file.epub`;
+    await Bun.write(emptyFilePath, "Empty content");
+
+    await syncFiles();
+    const seriesDirs = await readdir(outDir, { withFileTypes: true });
+    const emptySeriesDir = seriesDirs.find(
+      (dir) => dir.name === "Empty Series"
+    );
+    expect(emptySeriesDir).toBeUndefined();
+  });
 });
