@@ -1,0 +1,17 @@
+{
+  "name": "calibre-kavita-mirror",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^24.1.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^5.2.5",
+    "zod": "^4.0.14"
+  }
+}
