@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/"
+        xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:identifier opf:scheme="calibre" id="calibre_id">02</dc:identifier>
+        <dc:identifier opf:scheme="uuid" id="uuid_id">00000000-0000-0000-0002</dc:identifier>
+        <dc:title>Another Book</dc:title>
+        <dc:creator opf:file-as="Doe, Jane" opf:role="aut">Jane Doe</dc:creator>
+        <dc:identifier opf:scheme="ISBN">123456789</dc:identifier>
+        <dc:language>eng</dc:language>
+    </metadata>
+    <guide>
+        <reference type="cover" title="Cover" href="cover.jpg"/>
+    </guide>
+</package>

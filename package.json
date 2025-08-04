@@ -2,6 +2,12 @@
   "name": "calibre-kavita-mirror",
   "module": "index.ts",
   "type": "module",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Joshua Tag Howard",
+    "email": "tag@jthoward.dev"
+  },
   "private": true,
   "devDependencies": {
     "@types/bun": "latest",
@@ -13,5 +19,9 @@
   "dependencies": {
     "fast-xml-parser": "^5.2.5",
     "zod": "^4.0.14"
+  },
+  "scripts": {
+    "start": "bun run index.ts",
+    "test": "SOURCE_DIR=./test/source TARGET_DIR=./test/target NODE_ENV=test bun test"
   }
 }
