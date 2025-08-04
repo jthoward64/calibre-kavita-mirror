@@ -1,4 +1,12 @@
-import { readdir, mkdir, link, unlink, stat, readFile } from "node:fs/promises";
+import {
+  readdir,
+  mkdir,
+  link,
+  unlink,
+  stat,
+  readFile,
+  rmdir,
+} from "node:fs/promises";
 import { XMLParser } from "fast-xml-parser";
 import { z } from "zod";
 import { watch } from "node:fs";
@@ -252,6 +260,11 @@ export async function syncFiles() {
     try {
       if (!(await safeUnlink(filePath))) {
         throw new Error(`Failed to remove unused file: ${filePath}`);
+      }
+      const seriesContents = await readdir(`${outDir}/${seriesName}`);
+      if (seriesContents.length === 0) {
+        await rmdir(`${outDir}/${seriesName}`);
+        logMessage(`Removed empty series directory: ${seriesName}`);
       }
       logMessage(`Removed unused file: ${filePath}`);
     } catch (error) {
